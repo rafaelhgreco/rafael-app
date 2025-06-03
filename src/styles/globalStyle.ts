@@ -23,13 +23,13 @@ const globalStyles = css`
         --font-size-base: ${theme.typography.fontSize}px;
         --font-size-lg: ${theme.typography.h1.fontSize}px;
 
-        --spacing-xs: ${theme.spacing(1)}px;
-        --spacing-sm: ${theme.spacing(2)}px;
-        --spacing-md: ${theme.spacing(3)}px;
-        --spacing-lg: ${theme.spacing(4)}px;
-        --spacing-xl: ${theme.spacing(5)}px;
+        --padding-sm: 10px;
+        --padding-md: 12px;
+        --padding-xs: 16px;
 
         --border-radius: 8px;
+        --border-radius-sm: 4px;
+        --border-radius-lg: 12px;
         --transition-duration: 0.3s;
     }
 

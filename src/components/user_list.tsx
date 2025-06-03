@@ -9,7 +9,7 @@ const ListContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: var(--padding-xs);
 `;
 
 const UserList: React.FC = () => {
@@ -42,13 +42,13 @@ const UserList: React.FC = () => {
                     label="Button Outline"
                     onClick={() => alert("Reset List button clicked!")}
                     variant="outline"
-                    size="large"
+                    size="small"
                 />
                 <BasicButton
                     label="Button Secondary"
                     onClick={() => alert("Secondary Action button clicked!")}
                     variant="secondary"
-                    size="large"
+                    size="medium"
                 />
             </ListContainer>
         </ThemeProvider>

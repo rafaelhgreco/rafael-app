@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const HeaderWrapper = styled.header`
     background-color: var(--color-background-header);
-    padding: 10px 20px;
+    padding: var(--padding-md);
     display: flex;
     justify-content: center;
     position: sticky;

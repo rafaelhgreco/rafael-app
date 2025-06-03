@@ -45,15 +45,15 @@ const getButtonStyles = ({
 
     const sizeStyles = {
         small: `
-      padding : 4px 8px;
+      padding : var(--padding-md);
       font-size: var(--font-size-base);
     `,
         medium: `
-      padding: 8px 12px;
+      padding : var(--padding-md);
       font-size: var(--font-size-lg);
     `,
         large: `
-      padding : 12px 16px;
+      padding : var(--padding-md);
       front-size: var(--font-size-lg);
     `,
     };

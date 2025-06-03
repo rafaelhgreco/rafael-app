@@ -5,7 +5,7 @@ const Container = styled.div<CardProps>`
     background-color: var(--color-paper);
     border-radius: var(--border-radius);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: var(--padding-xs);
     margin: 10px;
 `;
 
