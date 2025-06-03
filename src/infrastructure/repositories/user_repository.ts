@@ -1,4 +1,3 @@
-// src/infrastructure/repositories/user_repository.ts
 import { getUsers } from "../api_client";
 import type { User } from "../../domain/user";
 

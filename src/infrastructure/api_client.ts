@@ -1,7 +1,5 @@
-// src/infrastructure/api_client.ts
 import type { User } from "../domain/user";
 
-// Use uma URL que o MSW irá interceptar
 const BASE_URL = "/api";
 
 export const getUsers = async (): Promise<User[]> => {
