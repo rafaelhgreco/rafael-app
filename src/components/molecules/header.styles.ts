@@ -1,31 +1,39 @@
+// header.styles.ts
 import styled from "styled-components";
-
-const ListItem = styled.li`
-    list-style-type: none;
-    margin: 0;
-    padding: 10px 20px;
-    font-size: var(--font-size-base);
-    color> var(--color-text-primary);
-    cursor: pointer;
-`;
+import { NavLink } from "react-router-dom";
 
 const List = styled.ul`
+    display: flex;
+    gap: 20px;
+    list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-direction: row;
 `;
 
-const Link = styled.a`
+const ListItem = styled.li`
+    padding: 0;
+    margin: 0;
+`;
+
+const Link = styled(NavLink)`
     text-decoration: none;
-    color: inherit;
-    &:hover {
-        color: var(--color-primary-dark);
+    color: var(--color-text);
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+
+    &.active {
+        background-color: var(--color-primary);
+        color: white;
+    }
+
+    &:hover:not(.active) {
+        background-color: rgba(0, 0, 0, 0.05);
     }
 `;
 
 export const Styled = {
-    ListItem,
     List,
+    ListItem,
     Link,
 };

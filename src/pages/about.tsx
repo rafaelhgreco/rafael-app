@@ -1,15 +1,10 @@
-export default function About() {
+import React from "react";
+
+export const AboutPage: React.FC = () => {
     return (
         <div>
-            <p>
-                Welcome to our website! We are dedicated to providing the best
-                service possible. Our team is passionate about what we do and
-                strives to exceed your expectations.
-            </p>
-            <p>
-                If you have any questions or need further information, feel free
-                to contact us.
-            </p>
+            <h1>Sobre Nós</h1>
+            <p>Esta é a página Sobre Nós do nosso aplicativo.</p>
         </div>
     );
-}
+};

@@ -1,13 +1,20 @@
+// src/infrastructure/api_client.ts
 import type { User } from "../domain/user";
 
-const BASE_URL = "/api"; // MSW intercepts requests to this URL
+// Use uma URL que o MSW irá interceptar
+const BASE_URL = "/api";
 
 export const getUsers = async (): Promise<User[]> => {
-    const response = await fetch(`${BASE_URL}/users`);
+    try {
+        const response = await fetch(`${BASE_URL}/users`);
 
-    if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error("Error fetching users:", error);
+        throw error;
     }
-
-    return (await response.json()) as User[];
 };
