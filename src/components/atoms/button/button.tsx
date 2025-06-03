@@ -6,7 +6,7 @@ export interface ButtonProps {
     label: string | number;
     onClick: () => void;
     variant: "primary" | "secondary" | "outline";
-    size?: "small" | "large";
+    size?: "small" | "medium" | "large";
     children?: React.ReactNode;
 }
 

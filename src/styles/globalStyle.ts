@@ -1,4 +1,3 @@
-// src/styles/globalStyles.ts
 import { css } from "@emotion/react";
 import theme from "./themes";
 
@@ -29,9 +28,6 @@ const globalStyles = css`
         --spacing-md: ${theme.spacing(3)}px;
         --spacing-lg: ${theme.spacing(4)}px;
         --spacing-xl: ${theme.spacing(5)}px;
-
-        --padding-xs: ${theme.spacing(1)}px;
-        --padding-sm: ${theme.spacing(2)}px;
 
         --border-radius: 8px;
         --transition-duration: 0.3s;

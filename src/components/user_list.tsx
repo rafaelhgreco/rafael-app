@@ -25,7 +25,7 @@ const UserList: React.FC = () => {
     return (
         <ThemeProvider theme={defaultTheme}>
             <ListContainer>
-                <h1>User List</h1>
+                <h3>User List</h3>
                 {users.map((user) => (
                     <UserCard key={user.id} user={user} />
                 ))}
@@ -41,11 +41,13 @@ const UserList: React.FC = () => {
                     label="Button Outline"
                     onClick={() => alert("Reset List button clicked!")}
                     variant="outline"
+                    size="large"
                 />
                 <BasicButton
                     label="Button Secondary"
                     onClick={() => alert("Secondary Action button clicked!")}
                     variant="secondary"
+                    size="large"
                 />
             </ListContainer>
         </ThemeProvider>

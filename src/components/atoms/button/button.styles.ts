@@ -1,11 +1,9 @@
 import styled from "@emotion/styled";
 import type { ButtonHTMLAttributes } from "react";
 
-// Definir variantes e tamanhos disponíveis
 export type ButtonVariant = "primary" | "secondary" | "outline";
 export type ButtonSize = "small" | "medium" | "large";
 
-// Estender as props do botão
 export interface StyledButtonProps
     extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: ButtonVariant;
@@ -20,6 +18,7 @@ const getButtonStyles = ({
     const variantStyles = {
         primary: `
       background-color: #007bff;
+      font-weight: 600;
       color: white;
       border: none;
       &:hover {
@@ -46,16 +45,16 @@ const getButtonStyles = ({
 
     const sizeStyles = {
         small: `
-      padding: 6px 12px;
-      font-size: 0.875rem;
+      padding : 4px 8px;
+      font-size: var(--font-size-base);
     `,
         medium: `
-      padding: 8px 16px;
-      font-size: 1rem;
+      padding: 8px 12px;
+      font-size: var(--font-size-lg);
     `,
         large: `
-      padding: 10px 20px;
-      font-size: 1.25rem;
+      padding : 12px 16px;
+      front-size: var(--font-size-lg);
     `,
     };
 
