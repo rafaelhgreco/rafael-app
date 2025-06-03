@@ -1,5 +1,15 @@
 import React from "react";
 import { useUsers } from "../hooks/use_users";
+import UserCard from "./user_card";
+import styled, { ThemeProvider } from "styled-components";
+import defaultTheme from "../styles/themes";
+import { BasicButton } from "../components/atoms/button/button";
+
+const ListContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
 
 const UserList: React.FC = () => {
     const { users, isLoading, error } = useUsers();
@@ -13,16 +23,32 @@ const UserList: React.FC = () => {
     }
 
     return (
-        <div>
-            <h1>User List</h1>
-            <ul>
+        <ThemeProvider theme={defaultTheme}>
+            <ListContainer>
+                <h1>User List</h1>
                 {users.map((user) => (
-                    <li key={user.id}>
-                        {user.name} ({user.email})
-                    </li>
+                    <UserCard key={user.id} user={user} />
                 ))}
-            </ul>
-        </div>
+            </ListContainer>
+            <ListContainer style={{ gap: "10px" }}>
+                <BasicButton
+                    label="Button Primary"
+                    onClick={() => alert("Add User button clicked!")}
+                    variant="primary"
+                    size="large"
+                />
+                <BasicButton
+                    label="Button Outline"
+                    onClick={() => alert("Reset List button clicked!")}
+                    variant="outline"
+                />
+                <BasicButton
+                    label="Button Secondary"
+                    onClick={() => alert("Secondary Action button clicked!")}
+                    variant="secondary"
+                />
+            </ListContainer>
+        </ThemeProvider>
     );
 };
 

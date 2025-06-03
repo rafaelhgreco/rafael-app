@@ -1,7 +1,6 @@
-// src/infrastructure/stores/user_store.ts
 import { create } from "zustand";
 import type { User } from "../../domain/user";
-import { useUserRepository } from "../repositories/user_repository";
+import { userRepository } from "../repositories/user_repository";
 
 interface UserState {
     users: User[];
@@ -11,17 +10,15 @@ interface UserState {
 }
 
 export const useUserStore = create<UserState>((set) => {
-    const { getUsersData } = useUserRepository();
-
     return {
         users: [],
-        isLoading: true,
+        isLoading: false,
         error: null,
         fetchUsers: async () => {
             set({ isLoading: true, error: null });
             try {
-                const users = await getUsersData();
-                set({ users: users, isLoading: false });
+                const users = await userRepository.getUsersData();
+                set({ users, isLoading: false });
             } catch (error: any) {
                 set({ error: error.message, isLoading: false });
             }

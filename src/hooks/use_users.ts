@@ -1,5 +1,13 @@
-import { useUserController } from "../application/controller/user_controller";
+// src/hooks/use_users.ts
+import { useEffect } from "react";
+import { useUserStore } from "../infrastructure/stores/use_store";
 
 export const useUsers = () => {
-    return useUserController();
+    const { users, isLoading, error, fetchUsers } = useUserStore();
+
+    useEffect(() => {
+        fetchUsers();
+    }, [fetchUsers]);
+
+    return { users, isLoading, error };
 };

@@ -1,10 +1,9 @@
-import type { User } from "../../domain/user";
+// src/infrastructure/repositories/user_repository.ts
 import { getUsers } from "../api_client";
+import type { User } from "../../domain/user";
 
-export const useUserRepository = () => {
-    const getUsersData = async (): Promise<User[]> => {
+export const userRepository = {
+    getUsersData: async (): Promise<User[]> => {
         return await getUsers();
-    };
-
-    return { getUsersData };
+    },
 };
