@@ -8,10 +8,7 @@ const HeaderWrapper = styled.header`
     padding: 10px 20px;
     display: flex;
     justify-content: center;
-    position: sticky; // Mantém o header no topo durante a rolagem
-    top: 0;
-    width: 100%; // Garante que ocupe toda a largura
-    z-index: 1000; // Garante que fique acima de outros elementos
+    position: sticky;
 `;
 
 interface HeaderProps {

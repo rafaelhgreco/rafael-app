@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import type { CardProps } from "@mui/material";
 
 const Container = styled.div<CardProps>`
-    background-color: var(--color-background);
+    background-color: var(--color-paper);
     border-radius: var(--border-radius);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;

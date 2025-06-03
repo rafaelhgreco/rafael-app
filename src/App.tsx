@@ -1,9 +1,7 @@
-// src/App.tsx - com layout corrigido
 import Header from "./components/molecules/header";
 import { Route, Routes, HashRouter } from "react-router-dom";
 import { HomePage } from "./pages/home";
 import { AboutPage } from "./pages/about";
-
 import { ThemeProvider } from "styled-components";
 import theme from "./styles/themes";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -11,17 +9,16 @@ import globalStyles from "./styles/globalStyle";
 import { Global } from "@emotion/react";
 import styled from "styled-components";
 
-const AppLayout = styled.div`
+const Container = styled.div`
+    height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    width: 1366px;
+    overflow: hidden;
+    line-height: 1.5;
+    max-width: 1920px;
     margin: 0 auto;
-`;
-
-const ContentContainer = styled.main`
-    flex: 1;
-    padding: 20px;
+    position: relative;
 `;
 
 export const App = () => {
@@ -29,17 +26,17 @@ export const App = () => {
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <Global styles={globalStyles} />
-            <AppLayout>
+            <Container>
                 <HashRouter>
                     <Header items={["Inicio", "Sobre"]} />
-                    <ContentContainer>
+                    <div>
                         <Routes>
                             <Route path="/" element={<HomePage />} />
                             <Route path="/sobre" element={<AboutPage />} />
                         </Routes>
-                    </ContentContainer>
+                    </div>
                 </HashRouter>
-            </AppLayout>
+            </Container>
         </ThemeProvider>
     );
 };
