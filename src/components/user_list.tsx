@@ -1,23 +1,10 @@
 import React from "react";
 import { useUsers } from "../hooks/use_users";
 import UserCard from "./user_card";
-import styled, { ThemeProvider } from "styled-components";
 import defaultTheme from "../styles/themes";
 import { BasicButton } from "../components/atoms/button/button";
-
-const ListContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: var(--padding-xs);
-`;
-
-const Title = styled.h3`
-    color: var(--color-text);
-    margin-bottom: 20px;
-    font-size: var(--font-size-title);
-    text-align: center;
-`;
+import { Styled } from "./user_list.styles";
+import { ThemeProvider } from "styled-components";
 
 const UserList: React.FC = () => {
     const { users, isLoading, error } = useUsers();
@@ -32,13 +19,13 @@ const UserList: React.FC = () => {
 
     return (
         <ThemeProvider theme={defaultTheme}>
-            <ListContainer>
-                <Title>User List</Title>
+            <Styled.ListContainer>
+                <Styled.Title>User List</Styled.Title>
                 {users.map((user) => (
                     <UserCard key={user.id} user={user} />
                 ))}
-            </ListContainer>
-            <ListContainer style={{ gap: "10px" }}>
+            </Styled.ListContainer>
+            <Styled.ListContainer style={{ gap: "10px" }}>
                 <BasicButton
                     label="Button Primary"
                     onClick={() => alert("Add User button clicked!")}
@@ -57,7 +44,7 @@ const UserList: React.FC = () => {
                     variant="secondary"
                     size="medium"
                 />
-            </ListContainer>
+            </Styled.ListContainer>
         </ThemeProvider>
     );
 };
