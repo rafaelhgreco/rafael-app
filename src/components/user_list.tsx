@@ -12,6 +12,13 @@ const ListContainer = styled.div`
     padding: var(--padding-xs);
 `;
 
+const Title = styled.h3`
+    color: var(--color-text);
+    margin-bottom: 20px;
+    font-size: var(--font-size-title);
+    text-align: center;
+`;
+
 const UserList: React.FC = () => {
     const { users, isLoading, error } = useUsers();
 
@@ -26,7 +33,7 @@ const UserList: React.FC = () => {
     return (
         <ThemeProvider theme={defaultTheme}>
             <ListContainer>
-                <h3>User List</h3>
+                <Title>User List</Title>
                 {users.map((user) => (
                     <UserCard key={user.id} user={user} />
                 ))}

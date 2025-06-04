@@ -1,4 +1,3 @@
-// src/components/atoms/UserCard/UserCard.tsx
 import React from "react";
 import type { User } from "../domain/user";
 import { Card } from "./atoms/card";

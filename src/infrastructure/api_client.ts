@@ -1,3 +1,4 @@
+import type { Product } from "../domain/product";
 import type { User } from "../domain/user";
 
 const BASE_URL = "/api";
@@ -13,6 +14,21 @@ export const getUsers = async (): Promise<User[]> => {
         return await response.json();
     } catch (error) {
         console.error("Error fetching users:", error);
+        throw error;
+    }
+};
+
+export const getProducts = async (): Promise<Product[]> => {
+    try {
+        const response = await fetch(`${BASE_URL}/products`);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error("Error fetching products:", error);
         throw error;
     }
 };

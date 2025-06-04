@@ -1,7 +1,7 @@
 import Header from "./components/molecules/header";
 import { Route, Routes, HashRouter } from "react-router-dom";
 import { HomePage } from "./pages/home";
-import { AboutPage } from "./pages/about";
+import { ProductsPage } from "./pages/products";
 import { ThemeProvider } from "styled-components";
 import theme from "./styles/themes";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -28,11 +28,14 @@ export const App = () => {
             <Global styles={globalStyles} />
             <Container>
                 <HashRouter>
-                    <Header items={["Inicio", "Sobre"]} />
+                    <Header items={["Inicio", "Produtos"]} />
                     <div>
                         <Routes>
                             <Route path="/" element={<HomePage />} />
-                            <Route path="/sobre" element={<AboutPage />} />
+                            <Route
+                                path="/produtos"
+                                element={<ProductsPage />}
+                            />
                         </Routes>
                     </div>
                 </HashRouter>
