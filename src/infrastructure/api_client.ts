@@ -32,3 +32,18 @@ export const getProducts = async (): Promise<Product[]> => {
         throw error;
     }
 };
+
+export const getProductsTemporal = (
+    filter: string | null = null
+): Promise<Product[]> => {
+    const url = new URL("/api/products", window.location.origin);
+    if (filter) {
+        url.searchParams.append("filter", filter);
+    }
+    return fetch(url.toString())
+        .then((response) => response.json())
+        .catch((error) => {
+            console.error("Erro na chamada da API:", error);
+            throw error;
+        });
+};

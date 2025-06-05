@@ -1,4 +1,5 @@
 import type { GetProductsUseCase } from "../usecases/get_products_usecase";
+import type { ProductFilter } from "../../hooks/use_products_temporal";
 
 export class ProductController {
     private getProductsUseCase: GetProductsUseCase;
@@ -6,7 +7,13 @@ export class ProductController {
         this.getProductsUseCase = getProductsUseCase;
     }
 
-    async fetchProducts(sortByPriceDescending: boolean = false) {
-        return await this.getProductsUseCase.execute(sortByPriceDescending);
+    fetchProducts(
+        sortByPriceDescending: boolean = false,
+        filter: ProductFilter = null
+    ) {
+        return this.getProductsUseCase.getProducts(
+            sortByPriceDescending,
+            filter
+        );
     }
 }

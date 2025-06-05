@@ -1,5 +1,7 @@
 import type { Product } from "../../domain/product";
 import { ProductService } from "../services/product_service";
+import type { ProductFilter } from "../../hooks/use_products_temporal";
+import { useProductStore } from "../../infrastructure/stores/use_product_store";
 
 export class GetProductsUseCase {
     private service: ProductService;
@@ -7,19 +9,19 @@ export class GetProductsUseCase {
         this.service = service;
     }
 
-    async execute(sortByPriceDescending: boolean = false): Promise<Product[]> {
-        // Busca os produtos através do serviço
-        const products = await this.service.fetchProducts();
-
-        //Se a flag de ordenação estiver ativa, clonamos o array de produtos usando o spread operator ([...products]) para não modificar o array original.
-        if (sortByPriceDescending) {
-            // Clona o array para evitar side-effects e ordena do mais caro para o mais barato
-            const sortedProducts = [...products].sort(
-                (a, b) => b.price - a.price
-            );
-            console.log("Produtos ordenados:", sortedProducts);
-            return sortedProducts;
-        }
-        return products;
+    getProducts(
+        sortByPriceDescending: boolean = false,
+        filter: ProductFilter = null
+    ): Promise<Product[]> {
+        return this.service.fetchProducts(filter).then((products) => {
+            // inicialmente recebe um valor e pode ser reatribuída se a flag sortByPriceDescending for verdadeira.
+            let ordered = products;
+            if (sortByPriceDescending) {
+                ordered = [...products].sort((a, b) => b.price - a.price);
+            }
+            // Atualiza a store com a lista ordenada
+            useProductStore.getState().setProducts(ordered);
+            return ordered;
+        });
     }
 }

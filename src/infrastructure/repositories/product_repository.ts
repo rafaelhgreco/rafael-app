@@ -1,14 +1,9 @@
 import type { Product } from "../../domain/product";
-import { getProducts } from "../api_client";
+import type { ProductFilter } from "../../hooks/use_products_temporal";
+import { getProductsTemporal } from "../api_client";
 
 export class ProductRepository {
-    async getAllProducts(): Promise<Product[]> {
-        try {
-            const products = await getProducts();
-            return products;
-        } catch (error) {
-            console.error("Error fetching products:", error);
-            throw error;
-        }
+    async getAllProducts(filter: ProductFilter = null): Promise<Product[]> {
+        return getProductsTemporal(filter);
     }
 }
