@@ -1,4 +1,3 @@
-// src/components/atoms/Card/Card.tsx
 import React, { type ReactNode } from "react";
 import { Styled } from "./card.styles";
 

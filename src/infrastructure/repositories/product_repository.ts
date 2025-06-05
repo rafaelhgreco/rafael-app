@@ -1,4 +1,3 @@
-// src/infrastructure/repositories/product_repository.ts
 import type { Product } from "../../domain/product";
 import { getProducts } from "../api_client";
 
