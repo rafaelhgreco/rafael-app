@@ -1,17 +1,5 @@
 import styled from "@emotion/styled";
-
-const Card = styled.div`
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
-    border-left: 4px solid transparent;
-    width: 20%;
-    &.top-rated {
-        border-left-color: var(--color-primary);
-    }
-`;
+import { Card } from "./atoms/card";
 
 const ProductName = styled.h2`
     margin: 0 0 5px;
@@ -23,8 +11,17 @@ const ProductPrice = styled.p`
     color: #555;
 `;
 
+const Container = styled(Card)`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 20%;
+`;
+
 export const Styled = {
-    Card,
     ProductName,
     ProductPrice,
+    Container,
 };

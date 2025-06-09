@@ -5,6 +5,7 @@ import {
     type ProductFilter,
 } from "../hooks/use_products_temporal";
 import { ProductList } from "../components/product_list";
+import { BasicButton } from "../components/atoms/button/button";
 
 const Container = styled.div`
     padding: 20px;
@@ -15,16 +16,6 @@ const Title = styled.h1`
     color: var(--color-text);
 `;
 
-const FilterButton = styled.button<{ active: boolean }>`
-    background-color: ${({ active }) =>
-        active ? "var(--color-primary)" : "#e0e0e0"};
-    border: none;
-    padding: 8px 16px;
-    margin-right: 8px;
-    cursor: pointer;
-    color: #fff;
-`;
-
 export const ProductsPage: React.FC = () => {
     const [filter, setFilter] = useState<ProductFilter>(null);
 
@@ -33,32 +24,34 @@ export const ProductsPage: React.FC = () => {
     return (
         <Container>
             <Title>Produtos</Title>
-            <div>
-                <FilterButton
-                    active={filter === null}
+
+            <div style={{ display: "flex", gap: "10px" }}>
+                <BasicButton
                     onClick={() => setFilter(null)}
-                >
-                    Padrão
-                </FilterButton>
-                <FilterButton
-                    active={filter === "semanal"}
+                    variant="primary"
+                    size="small"
+                    label={"Filtro Padrão"}
+                />
+                <BasicButton
                     onClick={() => setFilter("semanal")}
-                >
-                    Semanal
-                </FilterButton>
-                <FilterButton
-                    active={filter === "mensal"}
+                    variant="secondary"
+                    size="small"
+                    label={"Filtro Semanal"}
+                />
+                <BasicButton
                     onClick={() => setFilter("mensal")}
-                >
-                    Mensal
-                </FilterButton>
-                <FilterButton
-                    active={filter === "anual"}
+                    variant={filter === "mensal" ? "primary" : "secondary"} // ternario
+                    size="small"
+                    label={"Filtro Mensal"}
+                />
+                <BasicButton
                     onClick={() => setFilter("anual")}
-                >
-                    Anual
-                </FilterButton>
+                    variant="secondary"
+                    size="small"
+                    label={"Filtro Anual"}
+                />
             </div>
+
             {products.length === 0 ? (
                 <p>Carregando...</p>
             ) : (

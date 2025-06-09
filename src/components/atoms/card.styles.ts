@@ -7,6 +7,10 @@ const Container = styled.div<CardProps>`
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: var(--padding-xs);
     margin: 10px;
+    border-left: 4px solid transparent;
+    &.top-rated {
+        border-left-color: var(--color-primary);
+    }
 `;
 
 const Title = styled.h2`
@@ -24,7 +28,12 @@ const Title = styled.h2`
     }
 `;
 
+export const FaqCard = styled(Container)`
+    border-left: 4px solid #007acc;
+`;
+
 export const Styled = {
     Container,
     Title,
+    FaqCard,
 };

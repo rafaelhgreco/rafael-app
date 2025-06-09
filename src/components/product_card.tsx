@@ -7,8 +7,8 @@ type ProductCardProps = {
 };
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product }) => (
-    <Styled.Card className={product.topRated ? "top-rated" : ""}>
+    <Styled.Container className={product.topRated ? "top-rated" : ""}>
         <Styled.ProductName>{product.name}</Styled.ProductName>
         <Styled.ProductPrice>R$ {product.price.toFixed(2)}</Styled.ProductPrice>
-    </Styled.Card>
+    </Styled.Container>
 );

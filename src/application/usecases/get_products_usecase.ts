@@ -9,11 +9,11 @@ export class GetProductsUseCase {
         this.service = service;
     }
 
-    getProducts(
+    async getProducts(
         sortByPriceDescending: boolean = false,
         filter: ProductFilter = null
     ): Promise<Product[]> {
-        return this.service.fetchProducts(filter).then((products) => {
+        return await this.service.fetchProducts(filter).then((products) => {
             // inicialmente recebe um valor e pode ser reatribuída se a flag sortByPriceDescending for verdadeira.
             let ordered = products;
             if (sortByPriceDescending) {

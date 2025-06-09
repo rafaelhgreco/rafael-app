@@ -8,6 +8,7 @@ export interface ButtonProps {
     variant: "primary" | "secondary" | "outline";
     size?: "small" | "medium" | "large";
     children?: React.ReactNode;
+    // active?: boolean;
 }
 
 const BasicButton: React.FC<ButtonProps> = ({
@@ -15,6 +16,7 @@ const BasicButton: React.FC<ButtonProps> = ({
     size,
     onClick,
     variant = "primary",
+    // active = false,
     ...props
 }) => {
     const handleClick = () => onClick();
