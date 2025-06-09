@@ -8,13 +8,18 @@ type AccordionProps = {
 export const Accordion: React.FC<AccordionProps> = ({ items }) => {
     return (
         <div>
-            {items.map((item, index) => (
-                <AccordionItem
-                    key={index}
-                    question={item.question}
-                    answer={item.answer}
-                />
-            ))}
+            {items.map(
+                (
+                    accordionItem,
+                    accordionIndex // nomes unicos para evitar conflitos
+                ) => (
+                    <AccordionItem
+                        key={accordionIndex}
+                        question={accordionItem.question}
+                        answer={accordionItem.answer}
+                    />
+                )
+            )}
         </div>
     );
 };

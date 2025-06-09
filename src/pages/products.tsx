@@ -28,13 +28,13 @@ export const ProductsPage: React.FC = () => {
             <div style={{ display: "flex", gap: "10px" }}>
                 <BasicButton
                     onClick={() => setFilter(null)}
-                    variant="primary"
+                    variant={filter === null ? "primary" : "secondary"}
                     size="small"
                     label={"Filtro Padrão"}
                 />
                 <BasicButton
                     onClick={() => setFilter("semanal")}
-                    variant="secondary"
+                    variant={filter === "semanal" ? "primary" : "secondary"}
                     size="small"
                     label={"Filtro Semanal"}
                 />
@@ -46,7 +46,7 @@ export const ProductsPage: React.FC = () => {
                 />
                 <BasicButton
                     onClick={() => setFilter("anual")}
-                    variant="secondary"
+                    variant={filter === "anual" ? "primary" : "secondary"}
                     size="small"
                     label={"Filtro Anual"}
                 />
