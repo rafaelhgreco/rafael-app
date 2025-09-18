@@ -10,6 +10,7 @@ import { Global } from "@emotion/react";
 import styled from "styled-components";
 import { FAQPage } from "./pages/faq";
 import TablePage from "./components/organims/table";
+import { PaginationPage } from "./pages/pagination";
 
 const Container = styled.div`
     height: 100vh;
@@ -30,7 +31,15 @@ export const App = () => {
             <Global styles={globalStyles} />
             <Container>
                 <HashRouter>
-                    <Header items={["Inicio", "Produtos", "FAQ", "Table"]} />
+                    <Header
+                        items={[
+                            "Inicio",
+                            "Produtos",
+                            "FAQ",
+                            "Table",
+                            "Pagination",
+                        ]}
+                    />
                     <div>
                         <Routes>
                             <Route path="/" element={<HomePage />} />
@@ -40,6 +49,10 @@ export const App = () => {
                             />
                             <Route path="/faq" element={<FAQPage />} />
                             <Route path="/table" element={<TablePage />} />
+                            <Route
+                                path="/pagination"
+                                element={<PaginationPage />}
+                            />
                             {/* Add more routes as needed */}
                         </Routes>
                     </div>

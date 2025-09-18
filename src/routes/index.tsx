@@ -5,6 +5,8 @@ import { HomePage } from "../pages/home";
 import { FAQPage } from "../pages/faq";
 import App from "../App";
 import TablePage from "../components/organims/table";
+import { Pagination } from "@mui/material";
+import { PaginationPage } from "../pages/pagination";
 
 const routes: RouteObject[] = [
     {
@@ -15,6 +17,10 @@ const routes: RouteObject[] = [
             { path: "produtos", element: <ProductsPage /> },
             { path: "faq", element: <FAQPage /> },
             { path: "table", element: <TablePage /> },
+            {
+                path: "pagination",
+                element: <PaginationPage />,
+            },
         ],
     },
 ];
